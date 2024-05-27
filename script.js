@@ -19,7 +19,6 @@ let checkCount = 0;
 handleSlider();
 setIndicator("#ccc");
 
-
 function handleSlider() {
   inputSlider.value = passwordLength;
   lengthDisplay.innerText = passwordLength;
@@ -33,7 +32,6 @@ function setIndicator(color) {
   indicator.style.backgroundColor = color;
   indicator.style.boxShadow = `0px 0px 12px 1px ${color}`;
 }
-
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -84,16 +82,17 @@ async function copyContent() {
   try {
     await navigator.clipboard.writeText(passwordDisplay.value);
     copyMsg.innerText = "Copied";
+    console.log("Copied Msd");
   } catch (err) {
     copyMsg.innerText = "Failed";
+    console.log("Failed Msd");
   }
   copyMsg.classList.add("active");
-  
+
   setTimeout(() => {
     copyMsg.classList.remove("active");
   }, 2000);
 }
-
 
 function shufflePassword(array) {
   //Fisher yates Method
